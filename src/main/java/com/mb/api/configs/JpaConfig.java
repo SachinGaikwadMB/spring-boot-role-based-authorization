@@ -1,4 +1,4 @@
-package com.mb.api.persistance.entity;
+package com.mb.api.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.mb.api.persistance.entity;
+package com.mb.api.configs;
 
 import java.util.Optional;
 import org.springframework.data.domain.AuditorAware;
