@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -21,7 +22,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User
+@EqualsAndHashCode(callSuper=false)
+public class User extends BaseEntity<String>
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
