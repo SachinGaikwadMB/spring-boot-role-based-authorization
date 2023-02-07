@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,10 +25,15 @@ import com.mb.api.persistance.repository.RoleRepository;
 import com.mb.api.persistance.repository.UserRepository;
 import com.mb.api.web.models.LoginModel;
 import com.mb.api.web.models.UserRegisterModel;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService
 {
+	
+	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -87,7 +93,10 @@ public class UserServiceImpl implements UserService
 		
 		 org.springframework.security.core.userdetails.User securiyUser  = (org.springframework.security.core.userdetails.User)authentication.getPrincipal();
 		
-		 System.out.println(securiyUser.getAuthorities());
+		
+		 
+		 //System.out.println(securiyUser.getAuthorities());
+		 logger.info("security Object {}",securiyUser.getAuthorities());
 		 List<String> roles = securiyUser.getAuthorities().stream().map((item) -> item.getAuthority()).collect(Collectors.toList());
 		 
 		 
